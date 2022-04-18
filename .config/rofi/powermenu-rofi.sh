@@ -17,15 +17,15 @@ chosen="$(echo -e "${options}" | rofi -dmenu -config $theme -p "Uptime - $uptime
 
 case "${chosen}" in
     $shutdown)
-       loginctl poweroff
+       systemctl poweroff
        ;;
 
     $reboot)
-       loginctl reboot
+       systemctl reboot
         ;;
 
     $suspend)
-       loginctl suspend
+       systemctl suspend
         ;;
 
     $lock)
@@ -33,6 +33,6 @@ case "${chosen}" in
         ;;
 
     $logout)
-       i3-msg exit
+       bspc quit
         ;;
 esac
