@@ -1,14 +1,16 @@
 #! /bin/sh
 
-# start
-polybar -r bar &
-${HOME}/.fehbg &
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+# auto start
 dunst &
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/polkit-kde-authentication-agent-1 & 
+${HOME}/.fehbg &
+polybar -r &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor LVDS1 -d I II III IV V VI VII VIII IX X
+bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width         0
 bspc config window_gap          12
